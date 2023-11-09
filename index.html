@@ -118,8 +118,9 @@ function formatCurrency(symbol, amount) {
     return formattedAmount + rules.space + symbol;
   }
 }
-  window.onload = function() { 
-    let price = document.querySelector('[data-fsc-item-path="mpc-annual"][data-fsc-item-price]')
+window.addEventListener('load', (event) => {
+  setTimeout(function() {
+        let price = document.querySelector('[data-fsc-item-path="mpc-annual"][data-fsc-item-price]')
     let monthly = document.querySelector("#b")
     let currSymbol = price.textContent.split('\u00A0')[1]
     let amount = parseFloat(price.textContent.split('\u00A0')[0].replace(',', '.'))
@@ -132,9 +133,25 @@ function formatCurrency(symbol, amount) {
     twoYr.innerHTML = formatCurrency(currSymbol, twoYrPrice)
     monthly.innerHTML = formatCurrency(currSymbol, parseFloat((amount / 12)))
     twoYrMonthly.innerHTML = formatCurrency(currSymbol, parseFloat((twoYrPrice / 24)))
+  }, 10);
+});
+  // window.onload = function() { 
+  //   let price = document.querySelector('[data-fsc-item-path="mpc-annual"][data-fsc-item-price]')
+  //   let monthly = document.querySelector("#b")
+  //   let currSymbol = price.textContent.split('\u00A0')[1]
+  //   let amount = parseFloat(price.textContent.split('\u00A0')[0].replace(',', '.'))
+  //   let twoYr = document.querySelector('[data-fsc-item-path="MPC-2yr"]')
+  //   let twoYrPrice = parseFloat(twoYr.textContent.split('\u00A0')[0].replace(',', '.'))
+  //   let twoYrMonthly = document.querySelector('span.z')
+
+  //   console.log(formatCurrency(currSymbol, amount));
+  //   price.innerText = formatCurrency(currSymbol, amount)
+  //   twoYr.innerHTML = formatCurrency(currSymbol, twoYrPrice)
+  //   monthly.innerHTML = formatCurrency(currSymbol, parseFloat((amount / 12)))
+  //   twoYrMonthly.innerHTML = formatCurrency(currSymbol, parseFloat((twoYrPrice / 24)))
 
 
-   }
+  //  }
 </script>
 <!-- developer function from upwork -->
   </head>
