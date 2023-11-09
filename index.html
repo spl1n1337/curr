@@ -100,7 +100,7 @@ function formatCurrency(symbol, amount) {
   const rules = currencyFormats[symbol];
 
   if (!rules) {
-    return 'Unknown currency symbol';
+    formatCurrency(symbol, amount)
   }
 
   let formattedAmount = amount.toLocaleString('en-US', {
